@@ -6,6 +6,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <customInput/>
     <App2/>
   </React.StrictMode>,
 )
