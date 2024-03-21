@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom/client'
 import {Greeting, Greeting2, App2} from './Greeting.jsx'
 import './index.css'
 
+
+import Accordion from './exercise.jsx'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <customInput/>
-    <App2/>
+  <Accordion/>
   </React.StrictMode>,
 )
