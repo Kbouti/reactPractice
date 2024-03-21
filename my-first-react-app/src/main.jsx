@@ -5,10 +5,10 @@ import {Greeting, Greeting2, App2} from './Greeting.jsx'
 import './index.css'
 
 
-import Accordion from './exercise.jsx'
+import {SyncedInputs} from './exercise.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <Accordion/>
+  <SyncedInputs/>
   </React.StrictMode>,
 )
