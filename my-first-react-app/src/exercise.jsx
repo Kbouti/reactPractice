@@ -1,26 +1,26 @@
 import { useState } from "react";
 
-function SyncedInputs() {
-  const [userInput, setUserInput] = useState("");
-  function handleChange(e) {
-    setUserInput(e.target.value);
-  }
+function Person() {
+    const [person, setPerson] = useState({name: "John", age: 100 });
 
-  return (
+    const handleIncreaseAge = () => {
+
+        const newPerson = {...person, age: person.age + 1 };
+            // This^^ is super helpful syntax for: Copy this object, but change this one thing
+            setPerson(newPerson);
+    }
+
+
+
+return (
     <>
-      <Input label="First input" value={userInput} onChange={handleChange} />
-      <Input label="Second input" value={userInput} onChange={handleChange} />
+    <h1>{person.name}</h1>
+    <h2>{person.age}</h2>
+    <button onclick={handleIncreaseAge}>Increase age</button>
     </>
-  );
+)
+
+
 }
 
-function Input({ label, value, onChange }) {
-
-  return (
-    <label>
-      {label} <input value={value} onChange={onChange} />
-    </label>
-  );
-}
-
-export { SyncedInputs };
+export { Person };
