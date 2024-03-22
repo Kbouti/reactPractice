@@ -1,39 +1,26 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 function SyncedInputs() {
+  const [userInput, setUserInput] = useState("");
+  function handleChange(e) {
+    setUserInput(e.target.value);
+  }
+
   return (
     <>
-      <Input label="First input" value="gt" />
-      <Input label="Second input" value="as"/>
+      <Input label="First input" value={userInput} onChange={handleChange} />
+      <Input label="Second input" value={userInput} onChange={handleChange} />
     </>
   );
 }
 
-
-// OKKKKKKAAAAAYYYYY
-// Why isn't my value working above????^^
-// I should be able to manually determine the value of the input when it's rendered. That isn't working for some reason
-
-
-
-function Input({ label, userInput }) {
-//   const [text, setText] = useState('');
-  function handleChange(e) {
-    console.log(`e.target.value: ${e.target.value}`)
-    // setText(e.target.value);
-  }
+function Input({ label, value, onChange }) {
 
   return (
     <label>
-      {label}
-      {' '}
-      <input
-        // value={userInput}
-        onChange={handleChange}
-      />
+      {label} <input value={value} onChange={onChange} />
     </label>
   );
 }
-
 
 export { SyncedInputs };
