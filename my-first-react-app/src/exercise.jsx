@@ -10,23 +10,38 @@ import { useState } from "react";
 // *******************************************************************************************
 
 function Person() {
-  const [person, setPerson] = useState({ name: "John", age: 100 });
-  const handleIncreaseAge = () => {
-    // This^^ is super helpful syntax for: Copy this object, but change this one thing
-    console.log(`in handleIncreaseAge (before setPerson call:`, person);
-    setPerson((prevPerson) => ({ ...person, age: prevPerson.age + 1 }));
-    setPerson((prevPerson) => ({ ...person, age: prevPerson.age + 1 }));
-    //  Using prevPerson as a callback like this instead of just passing the new object to setPerson allows us to run this twice in a row and actually increment age twice.
-    //  This allowed us to get and set the new age, then access the new state in the next line
+  const [person, setPerson] = useState({
+    firstName: "John",
+    lastName: "Smith",
+    age: 100,
+  });
 
-    console.log(`in handleIncreaseAge (after setPerson call:`, person);
+  const fullName = person.firstName + " " + person.lastName;
+  const handleIncreaseAge = () => {
+    setPerson({ ...person, age: person.age + 1 });
   };
 
-  console.log(`during render:`, person);
+  const handleFirstNameChange = (e) => {
+    setPerson({ ...person, firstName: e.target.value });
+  };
+
+  const handleLastNameChange = (e) => {
+    setPerson({ ...person, lastName: e.target.value });
+  };
 
   return (
     <>
-      <h1>{person.name}</h1>
+      <input
+        type="text"
+        placeholder="First Name"
+        onChange={handleFirstNameChange}
+      ></input>
+      <input
+        type="text"
+        placeholder="Last Name"
+        onChange={handleLastNameChange}
+      ></input>
+      <h1>{fullName}</h1>
       <h2>{person.age}</h2>
       <button onClick={handleIncreaseAge}>Increase age</button>
     </>
