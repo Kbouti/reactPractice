@@ -7,6 +7,7 @@ import { useState } from "react";
 // Add two separate input fields for the first name and the last name. The updated full name should be displayed on every keystroke in either of the two input fields.
 // There are many ways you can do this. Keep in mind what you’ve learned in this lesson while coding it out.
 
+//  Completed section 3/23/24
 // *******************************************************************************************
 
 function Person() {
